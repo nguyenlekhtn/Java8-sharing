@@ -17,7 +17,7 @@ Example: Given a list of integer to, double each element of it
 public static List<Integer> doubleMap(List<Integer> numbers) {
     List<Integer> newList = new ArrayList<>();
     for(Integer i : numbers) {
-        newList.add(i);
+        newList.add(i * 2);
     }
 
     return newList;
@@ -97,10 +97,10 @@ Stream Operations =  intermediate operations (return Stream<T>) +
 **Intermediate operations**
 * filter
 * map
-* forEach
 * ...
 
 **Terminal operations**
+
 * Matching
 ```java
 boolean isValid = list.stream().anyMatch(element -> element.contains("h")); // true
@@ -113,3 +113,6 @@ boolean isValidTwo = list.stream().noneMatch(element -> element.contains("h")); 
 List<String> resultList 
   = list.stream().map(element -> element.toUpperCase()).collect(Collectors.toList());
 ```
+
+* forEach
+
