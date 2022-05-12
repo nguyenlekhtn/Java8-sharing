@@ -10,7 +10,7 @@
 
 ## Lambda expression
 
-Example: Given a list of integer to, double each element of it
+Example: Given a list of Integer numbers, return a list with each element is doubled
 
 **Imperative**
 ```java
@@ -115,4 +115,46 @@ List<String> resultList
 ```
 
 * forEach
+
+## Optinal
+
+### Why
+
+```java
+String version = computer.getSoundcard().getVersion();
+```
+
+<img src="./img/2175762.webp">
+
+### Creating Optional object
+
+To create an empty Optional
+```java
+Optional<String> empty = Optional.empty();
+
+```
+an Optional with a non-null value:
+```java
+Optional<Soundcard> sc = Optional.of(soundcard);
+// NullPointerException will be thrown if argument is null
+```
+
+in case we expect some null values, we can use the ofNullable() method:
+```java
+Optional<String> opt = Optional.ofNullable(name);
+```
+
+### Checking Value Present
+```java
+Optional<String> opt = Optional.of("Baeldung");
+assertTrue(opt.isPresent());
+
+opt = Optional.ofNullable(null);
+assertFalse(opt.isPresent());
+```
+
+```java
+Optional<String> opt = Optional.of("hello");
+opt.ifPresent(name -> System.out.println(name.length()));
+```
 
