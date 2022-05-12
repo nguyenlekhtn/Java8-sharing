@@ -6,6 +6,13 @@
 ## Why
 
 ### Declarative over imperative
+
+Declarative programming: describing WHAT the program does, without explicitly specifying its control flow.  
+  
+Imperative programming: describing HOW the program should do something by 
++ explicitly specifying each instruction (or statement) step by step
++ mutate the program's state.
+
 ### Immutability over mutability
 
 ## Lambda expression
@@ -26,7 +33,7 @@ public static List<Integer> doubleMap(List<Integer> numbers) {
 
 **Declarative**
 
-Before Java 8
+Not using lambda
 ```java
 public static List<Integer> doubleMapOld(List<Integer> numbers) {
     return numbers.stream().map(new Function<Integer, Integer>() {
@@ -38,7 +45,7 @@ public static List<Integer> doubleMapOld(List<Integer> numbers) {
 }
 ```
 
-With Lambda Expression
+Using Lambda Expression
 ```java
 public static List<Integer> doubleMapUsingLambda(List<Integer> numbers) {
         return numbers.stream().map(i -> {
@@ -47,11 +54,10 @@ public static List<Integer> doubleMapUsingLambda(List<Integer> numbers) {
 }
 ```
 
-
+https://www.geeksforgeeks.org/lambda-expressions-java-8/
 
 ## Steam API
 
-## Problem with Mutating
 ```java
 public static List<Number> doubleNumber(List<Number> numbers) {
     for(int i = 0; i < numbers.size(); i++) {
@@ -62,7 +68,6 @@ public static List<Number> doubleNumber(List<Number> numbers) {
     return numbers;
 }
 ```
-Not mutated
 
 ```java
 public static List<Integer> doubleMap(List<Integer> numbers) {
@@ -153,8 +158,29 @@ opt = Optional.ofNullable(null);
 assertFalse(opt.isPresent());
 ```
 
+### Do Something If a Value Is Present
+
 ```java
 Optional<String> opt = Optional.of("hello");
 opt.ifPresent(name -> System.out.println(name.length()));
+```
+
+### Default Value With orElseGet()
+
+```java
+String nullName = null;
+String name = Optional.ofNullable(nullName).orElseGet(() -> "john");
+```
+
+###  Exceptions With orElseThrow()
+```java
+String nullName = null;
+    String name = Optional.ofNullable(nullName).orElseThrow(
+      IllegalArgumentException::new);
+```
+### Returning Value With get()
+```
+Optional<String> opt = Optional.of("hello");
+String name = opt.get();
 ```
 
