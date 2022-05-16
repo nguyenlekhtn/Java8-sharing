@@ -1,7 +1,7 @@
 # Java 8 Sharing
 
-* stream API
 * lambda expression
+* stream API
 
 ## Why
 
@@ -86,7 +86,7 @@ public static List<Number> doubleNumber(List<Number> numbers) {
 public static List<Integer> doubleMap(List<Integer> numbers) {
     List<Integer> newList = new ArrayList<>();
     for(Integer i : numbers) {
-        newList.add(i);
+        newList.add(i * 2);
     }
 
     return newList;
@@ -115,7 +115,7 @@ LongStream longStream = LongStream.rangeClosed(1, 3);
 ### Stream Operations
 ```
 Stream Operations =  intermediate operations (return Stream<T>) + 
-                     terminal operations (return a result of definite type).
+                     terminal operation (return a result of definite type).
 ```
 
 **Intermediate operations**
