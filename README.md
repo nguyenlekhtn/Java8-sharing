@@ -24,7 +24,20 @@ Example: Given a list of Integer numbers, return a list with each element is dou
 public static List<Integer> doubleMap(List<Integer> numbers) {
     List<Integer> newList = new ArrayList<>();
     for(Integer i : numbers) {
-        newList.add(i * 2);
+        Integer newNum = i * 2;
+        newList.add(newNum);
+    }
+
+    return newList;
+}
+```
+
+```java
+public static List<Integer> squareMap(List<Integer> numbers) {
+    List<Integer> newList = new ArrayList<>();
+    for(Integer i : numbers) {
+        Integer newNum = i * i;
+        newList.add(newNum);
     }
 
     return newList;
@@ -93,6 +106,12 @@ List<Integer> numbers = Arrays.asList(1, 2, 3);
 Stream<Integer> stream = numbers.stream();
 ```
 
+### Range
+```java
+IntStream intStream = IntStream.range(1, 3);
+LongStream longStream = LongStream.rangeClosed(1, 3);
+```
+
 ### Stream Operations
 ```
 Stream Operations =  intermediate operations (return Stream<T>) + 
@@ -121,7 +140,7 @@ List<String> resultList
 
 * forEach
 
-## Optinal
+## Optional
 
 ### Why
 
